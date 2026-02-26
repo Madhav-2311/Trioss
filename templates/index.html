@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Energy Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<nav>
+    <button onclick="showSection('home')">🏡Home</button>
+    <button onclick="showSection('solar')">☀️Solar Prediction</button>
+    <button onclick="showSection('load')">⚡Load Prediction</button>
+    <button onclick="showSection('outage')">🪫Outage Prediction</button>
+</nav>
+
+<section id="home" class="active">
+    <h1>MedLoom Dashboard</h1>
+</section>
+<center>
+<section id="solar">
+    <h2>☀️Solar Prediction</h2>
+    <input id="solar_hour" placeholder="Hour (Example: 14)">
+    <input id="solar_temp" placeholder="Temperature (Example: 32)">
+    <input id="solar_irr" placeholder="Irradiance (Example: 800)">
+    <input id="solar_hum" placeholder="Humidity (Example: 60)">
+    <button type="button" onclick="predictSolar()">Predict</button>
+    <p id="solar_output"></p>
+    <canvas id="solarChart"></canvas>
+</section>
+
+<section id="load">
+    <h2>⚡Load Prediction</h2>
+    <input type="date" id="load_date">
+    <input id="load_hour" placeholder="Hour (Example: 18)">
+    <input id="load_temp" placeholder="Temperature (Example: 30)">
+    <input id="load_hum" placeholder="Humidity (Example: 65)">
+    <button type="button" onclick="predictLoad()">Predict</button>
+    <p id="load_output"></p>
+    <canvas id="loadChart"></canvas>
+</section>
+
+<section id="outage">
+    <h2>🪫Outage Prediction</h2>
+    <input id="wind" placeholder="Wind Speed (Example: 40)">
+    <input id="rain" placeholder="Rainfall (Example: 12)">
+    <input id="out_temp" placeholder="Temperature (Example: 25)">
+    <label for="storm"><b>Storm Present?</b></label>
+    <select id="storm">
+        <option>No</option>
+        <option>Yes</option>
+    </select>
+    <button type="button" onclick="predictOutage()">Predict</button>
+    <p id="outage_output"></p>
+    <canvas id="outageChart"></canvas>
+</section>
+</center>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
